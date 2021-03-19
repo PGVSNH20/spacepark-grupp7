@@ -4,31 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpacePark.Classes
+namespace SpacePark.Types
 {
     class ParkingLot
     {
         List<ParkingSpace> spaces = new List<ParkingSpace>();
-
-
-
-        public bool full()
+        public bool CheckForFreeParkingSpaces()
         {
             foreach (ParkingSpace item in spaces)
             {
-
-                if (item.occupied == false)
+                if (item.Occupied == false)
                 {
                     return false;
                 }
-
-                
-
             }
-
             return true;
         }
-
-
     }
 }
