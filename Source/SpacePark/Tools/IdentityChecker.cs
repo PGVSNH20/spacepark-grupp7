@@ -9,11 +9,11 @@ namespace SpacePark.Tools
 {
     public static class IdentityChecker
     {
-        public static bool TestIfStarWarsActor(PeopleData pd, string name)
+        public static bool TestIfStarWarsActor(PeopleData personDataFromSWAPI, string userNameInput)
         {
-            foreach (PersonalData person in pd.results)
+            foreach (PersonalData personFromSWAPIList in personDataFromSWAPI.Results)
             {
-                if (person.name.ToLower() == name.ToLower())
+                if (personFromSWAPIList.Name.ToLower() == userNameInput.ToLower())
                 {
                     return true;
                 }
