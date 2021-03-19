@@ -13,11 +13,6 @@ namespace SpacePark
         {
             Console.WriteLine(IdentityChecker.TestIfStarWarsActor(PeopleFetcher.GetListOfPeople(), "Luke Skywalker"));
             Console.WriteLine(IdentityChecker.TestIfStarWarsActor(PeopleFetcher.GetListOfPeople(), "Lake Skyswimmer"));
-            List<PersonalData> lpd = PeopleFetcher.GetListOfPeople();
-            foreach (PersonalData pd in lpd)
-            {
-                Console.WriteLine(pd.Name);
-            }
 
 
 
