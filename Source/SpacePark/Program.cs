@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SpacePark.SWAPI;
+using SpacePark.Tools;
+using System;
 
 namespace SpacePark
 {
@@ -6,11 +8,8 @@ namespace SpacePark
     {
         static void Main(string[] args)
         {
-
-            for (int i = 0; i < 100; i++)
-            {
-                Console.Write("StarWars");
-            }
+            Console.WriteLine(IdentityChecker.TestIfStarWarsActor(PeopleFetcher.GetListOfPeople(), "Luke Skywalker"));
+            Console.WriteLine(IdentityChecker.TestIfStarWarsActor(PeopleFetcher.GetListOfPeople(), "Lake Skyswimmer"));
 
 
 
