@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpacePark.Types
 {
-    class ParkingLot
+    public class ParkingLot
     {
         List<ParkingSpace> spaces = new List<ParkingSpace>();
         public bool CheckForFreeParkingSpaces()
@@ -20,5 +20,8 @@ namespace SpacePark.Types
             }
             return true;
         }
+
+        public int Spaces
+
     }
 }

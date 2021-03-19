@@ -20,5 +20,7 @@ namespace SpacePark.Types
         public string Next { get; set; }
         public object Previous { get; set; }
         public IList<StarshipData> Starships { get; set; }
+
+        //Hello
     }
 }
