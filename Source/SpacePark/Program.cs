@@ -8,7 +8,7 @@ namespace SpacePark
 {
     class Program
     {
-        List<ParkingSpace> ParkingSpaces = new List<ParkingSpace>();
+        static List<ParkingSpace> ParkingSpaces = new List<ParkingSpace>();
         static void Main(string[] args)
         {
             Console.WriteLine(IdentityChecker.TestIfStarWarsActor(PeopleFetcher.GetListOfPeople(), "Luke Skywalker"));
@@ -17,9 +17,20 @@ namespace SpacePark
 
 
         }
-        private static void GenerateParkingSpaces()
+        private static void GenerateParkingSpaces(List<ParkingSpace> ParkingSpaces)
         {
-            throw new NotImplementedException();
+
+            /* 
+             Console.WriteLine("ID parkingsize?");
+             var id = Console.Read();
+             Console.WriteLine("Size");
+             double size = Console.Read();
+             ParkingSpaces.Add(new ParkingSpace() { ID = 1, Occupied = false, Size = 12.3 });
+
+
+            vet ej om detta kommer att funka. jag försöker
+             
+            */
         }
     }
 
