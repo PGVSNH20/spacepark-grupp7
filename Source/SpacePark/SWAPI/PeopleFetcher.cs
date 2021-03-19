@@ -12,13 +12,27 @@ namespace SpacePark.SWAPI
 {
     public static class PeopleFetcher
     {
-        public static PeopleData GetListOfPeople()
+        public static List<PersonalData> output = new List<PersonalData>();
+        public static List<PersonalData> GetListOfPeople()
+        {
+            Fetch(@"https://swapi.dev/api/people/");
+            return output;
+        }
+
+        private static void Fetch(string url)
         {
             using (WebClient wc = new WebClient())
             {
-                var data = wc.DownloadString(@"https://swapi.dev/api/people/");
+                var data = wc.DownloadString(url);
                 PeopleData pd = JsonConvert.DeserializeObject<PeopleData>(data);
-                return pd;
+                foreach (PersonalData person in pd.Results)
+                {
+                    output.Add(person);
+                }
+                if (!String.IsNullOrEmpty(pd.Next)) // NOT
+                {
+                    Fetch(pd.Next);
+                }
             }
         }
     }
