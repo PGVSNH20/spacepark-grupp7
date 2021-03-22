@@ -21,7 +21,5 @@ namespace SpacePark.Types
             return true;
         }
 
-        public int Spaces
-
     }
 }

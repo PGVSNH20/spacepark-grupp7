@@ -11,7 +11,6 @@ namespace SpacePark.Tools
     {
 
         ParkingLot pl = new ParkingLot();
-        Li
 
 
         

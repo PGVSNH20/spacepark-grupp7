@@ -8,9 +8,9 @@ namespace SpacePark.Types
 {
     public class StarshipData : BaseVehicle
     {
-        public string HyperdriveRating { get; set; }
+        public string Hyperdrive_Rating { get; set; }
         public string MGLT { get; set; }
-        public string StarshipClass { get; set; }
+        public string Starship_Class { get; set; }
         
     }
 
@@ -19,7 +19,7 @@ namespace SpacePark.Types
         public int Count { get; set; }
         public string Next { get; set; }
         public object Previous { get; set; }
-        public IList<StarshipData> Starships { get; set; }
+        public IList<StarshipData> Results { get; set; }
 
         //Hello
     }
