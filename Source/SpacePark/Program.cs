@@ -14,7 +14,11 @@ namespace SpacePark
             Console.WriteLine(IdentityChecker.TestIfStarWarsActor(PeopleFetcher.GetListOfPeople(), "Luke Skywalker"));
             Console.WriteLine(IdentityChecker.TestIfStarWarsActor(PeopleFetcher.GetListOfPeople(), "Lake Skyswimmer"));
 
-
+            List<StarshipData> starships = StarshipFetcher.GetListOfStarships();
+            foreach (StarshipData starship in starships)
+            {
+                Console.WriteLine($"{starship.Name} is of class {starship.Starship_Class}");
+            }
 
 
         }
