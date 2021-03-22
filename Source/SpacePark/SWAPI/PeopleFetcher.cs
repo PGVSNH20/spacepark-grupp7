@@ -15,6 +15,7 @@ namespace SpacePark.SWAPI
         public static List<PersonalData> output = new List<PersonalData>();
         public static List<PersonalData> GetListOfPeople()
         {
+            output = new List<PersonalData>();
             Fetch(@"https://swapi.dev/api/people/");
             return output;
         }

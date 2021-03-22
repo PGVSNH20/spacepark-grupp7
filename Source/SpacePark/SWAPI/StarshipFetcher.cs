@@ -14,6 +14,7 @@ namespace SpacePark.SWAPI
         public static List<StarshipData> output = new List<StarshipData>();
         public static List<StarshipData> GetListOfStarships()
         {
+            output = new List<StarshipData>();
             Fetch(@"https://swapi.dev/api/starships/");
             return output;
         }
