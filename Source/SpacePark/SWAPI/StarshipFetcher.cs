@@ -11,7 +11,7 @@ namespace SpacePark.SWAPI
 {
     public static class StarshipFetcher
     {
-        public static List<StarshipData> output = new List<StarshipData>();
+        private static List<StarshipData> output = new List<StarshipData>();
         public static List<StarshipData> GetListOfStarships()
         {
             output = new List<StarshipData>();
