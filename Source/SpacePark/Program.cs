@@ -72,6 +72,30 @@ namespace SpacePark
             shipName = Console.ReadLine();
             ShipVerification(shipName);
 
+            static void ParkingVerification()
+            {
+                bool flag;
+                flag = ParkingLotChecks.CheckForFreeParkingSpaces(StarshipFetcher.GetListOfStarships(), shipName);
+
+                if (flag == true)
+                {
+                    Console.WriteLine("There is a parking space available for your ship.");
+                }
+                else
+                {
+                    Console.WriteLine("No parking space available at the moment.");
+                }
+            }
+
+            string isParkShip;
+            Console.WriteLine("Do you want to park your ship?");
+            isParkShip = Console.ReadLine();
+
+            if (string.Equals("YES", isParkShip.ToUpper()))
+            {
+                ParkingVerification(isParkShip);
+            }
+            
 
         }
     }

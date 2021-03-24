@@ -9,17 +9,7 @@ namespace SpacePark.Types
     public static class ParkingLot
     {
         public static List<ParkingSpace> ParkingSpaces;
-        public static bool CheckForFreeParkingSpaces()
-        {
-            foreach (ParkingSpace item in ParkingSpaces)
-            {
-                if (item.Occupied == false)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+        
         public static void GenerateParkingSpaces()
         {
             ParkingSpaces = new List<ParkingSpace>();
@@ -33,7 +23,6 @@ namespace SpacePark.Types
             {
 
             }
-
 
              Console.WriteLine("ID parkingsize?");
              var id = Console.Read();
