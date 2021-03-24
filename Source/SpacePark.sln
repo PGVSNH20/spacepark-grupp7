@@ -5,7 +5,10 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpacePark", "SpacePark\SpacePark.csproj", "{115C45B2-984E-4E0C-87BE-3297A782D677}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpacePark.tests", "SpacePark.tests\SpacePark.tests.csproj", "{EA7320EC-CC72-4B9C-A233-F2504257F1BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpacePark.tests", "SpacePark.tests\SpacePark.tests.csproj", "{EA7320EC-CC72-4B9C-A233-F2504257F1BD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{115C45B2-984E-4E0C-87BE-3297A782D677} = {115C45B2-984E-4E0C-87BE-3297A782D677}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

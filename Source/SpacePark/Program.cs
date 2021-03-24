@@ -8,7 +8,7 @@ namespace SpacePark
 {
     class Program
     {
-        /*
+            /*
              * Program flow:
              * 1. User starts the program
              * 2. Program checks to see if there are any free parking spaces. If true continue.
@@ -21,10 +21,13 @@ namespace SpacePark
              * And done.
              */
 
-        static List<ParkingSpace> ParkingSpaces = new List<ParkingSpace>();
         static void Main(string[] args)
         {
-
+            /*
+             * Om steg 3-6-koden
+             * 1. Om man skriver in en felaktig användare så går den vidare till "skriv in skepp"
+             * 2. Kommer behöva flytta ut metoder och sånt i andra klasser efter att vi gjort så de fungerar korrekt.
+             */
             static void UserVerification(string userName)
             {
                 bool flag;
@@ -66,43 +69,7 @@ namespace SpacePark
             shipName = Console.ReadLine();
             ShipVerification(shipName);
 
-            /*
 
-                  GenerateParkingSpaces();
-
-                  Console.WriteLine(IdentityChecker.TestIfStarWarsActor(PeopleFetcher.GetListOfPeople(), "Luke Skywalker"));
-                  Console.WriteLine(IdentityChecker.TestIfStarWarsActor(PeopleFetcher.GetListOfPeople(), "Lake Skyswimmer"));
-
-                  List<StarshipData> starships = StarshipFetcher.GetListOfStarships();
-                  foreach (StarshipData starship in starships)
-                  {
-                      Console.WriteLine($"{starship.Name} is of class {starship.Starship_Class}");
-                  }
-                 */
-
-        }
-        private static void GenerateParkingSpaces()
-        {
-
-            /*
-            int index = 0;
-            for (; index < 100; index++)
-            {
-                ParkingSpaces.Add(new ParkingSpace());
-            }
-            for (; index < 110; index++)
-            {
-
-            }
-
-
-             Console.WriteLine("ID parkingsize?");
-             var id = Console.Read();
-             Console.WriteLine("Size");
-             double size = Console.Read();
-             ParkingSpaces.Add(new ParkingSpace() { ID = 1, Occupied = false, Size = 12.3 });
-            */
         }
     }
-
 }

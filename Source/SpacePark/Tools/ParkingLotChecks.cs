@@ -4,14 +4,6 @@ namespace SpacePark.Tools
 {
     class ParkingLotChecks
     {
-
-        ParkingLot pl = new ParkingLot();
-
-
-        
-        
-
-
-
+        //  TODO: class
     }
 }
