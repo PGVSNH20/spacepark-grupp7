@@ -1,6 +1,7 @@
 ﻿using SpacePark.Types;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace SpacePark.Tools
 {
@@ -35,15 +36,15 @@ namespace SpacePark.Tools
             {
                 if (starshipDataFromSWAPIList.Name.ToLower() == starShipInput.ToLower())
                 {
-                    if (Convert.ToDouble(starshipDataFromSWAPIList.Length) <= 20)
+                    if (Convert.ToDouble(starshipDataFromSWAPIList.Length, CultureInfo.InvariantCulture) <= 20)
                     {
                         starShipLength = "SMALL";
                     }
-                    else if (Convert.ToDouble(starshipDataFromSWAPIList.Length) <= 120)
+                    else if (Convert.ToDouble(starshipDataFromSWAPIList.Length, CultureInfo.InvariantCulture) <= 120)
                     {
                         starShipLength = "MEDIUM";
                     }
-                    else if (Convert.ToDouble(starshipDataFromSWAPIList.Length) <= 500)
+                    else if (Convert.ToDouble(starshipDataFromSWAPIList.Length, CultureInfo.InvariantCulture) <= 500)
                     {
                         starShipLength = "LARGE";
                     }
