@@ -13,23 +13,35 @@ namespace SpacePark.Types
         public static void GenerateParkingSpaces()
         {
             ParkingSpaces = new List<ParkingSpace>();
-            /*
             int index = 0;
-            for (; index < 100; index++)
+            for (; index < 100; index++)            // Adds 100 occupied parking spaces for small ships
             {
-                ParkingSpaces.Add(new ParkingSpace());
+                ParkingSpaces.Add(new ParkingSpace(index, 20, true));
             }
-            for (; index < 110; index++)
+            for (; index < 110; index++)             // Adds 10 unoccupied parking spaces for small ships
             {
-
+                ParkingSpaces.Add(new ParkingSpace(index, 20, false));
             }
-
-             Console.WriteLine("ID parkingsize?");
-             var id = Console.Read();
-             Console.WriteLine("Size");
-             double size = Console.Read();
-             ParkingSpaces.Add(new ParkingSpace() { ID = 1, Occupied = false, Size = 12.3 });
-            */
+            for (; index < 118; index++)             // Adds 8 occupied parking spaces for medium ships
+            {
+                ParkingSpaces.Add(new ParkingSpace(index, 120, true));
+            }
+            for (; index < 120; index++)             // Adds 2 unoccupied parking spaces for medium ships
+            {
+                ParkingSpaces.Add(new ParkingSpace(index, 120, true));
+            }
+            for (; index < 124; index++)             // Adds 4 occupied parking spaces for large ships
+            {
+                ParkingSpaces.Add(new ParkingSpace(index, 500, true));
+            }
+            for (; index < 125; index++)             // Adds 1 unoccupied parking spaces for large ships
+            {
+                ParkingSpaces.Add(new ParkingSpace(index, 500, true));
+            }
+            for (; index < 126; index++)             // Adds 1 unoccupied parking space for capital ships
+            {
+                ParkingSpaces.Add(new ParkingSpace(index, 5000, true));
+            }
         }
 
     }

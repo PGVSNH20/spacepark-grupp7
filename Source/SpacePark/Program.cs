@@ -66,6 +66,7 @@ namespace SpacePark
             }
 
             UserVerification();
+            //ShipVerification();
 
             /*string userName;
             string shipName;
@@ -78,7 +79,7 @@ namespace SpacePark
                 userName = Console.ReadLine();
                 flag++;
             } while (UserVerification(userName) == false && flag != 2);
-            */
+            
             if (flag != 2)
             {
                 do {
@@ -87,21 +88,9 @@ namespace SpacePark
                     flag1++;
                 } while (ShipVerification(shipName) == false && flag1 != 2);    
             }
+            */
 
-            static void ParkingVerification(string isParkShip)
-            {
-                bool flag;
-                flag = ParkingLotChecks.CheckForFreeParkingSpaces(StarshipFetcher.GetListOfStarships(), shipName);
-
-                if (flag == true)
-                {
-                    Console.WriteLine("There is a parking space available for your ship.");
-                }
-                else
-                {
-                    Console.WriteLine("No parking space available at the moment.");
-                }
-            }
+            
 
             string isParkShip;
             Console.WriteLine("Do you want to park your ship? (yes/no)");
@@ -109,9 +98,22 @@ namespace SpacePark
 
             if (string.Equals("YES", isParkShip.ToUpper()))
             {
-                ParkingVerification(isParkShip);
+                ParkingVerification();
             }
 
+        }
+        private static void ParkingVerification()
+        {
+            string shipName = Console.ReadLine();
+
+            if (ParkingLotChecks.CheckForFreeParkingSpaces(StarshipFetcher.GetListOfStarships(), shipName))
+            {
+                Console.WriteLine("There is a parking space available for your ship.");
+            }
+            else
+            {
+                Console.WriteLine("No parking space available at the moment.");
+            }
         }
     }
 }
