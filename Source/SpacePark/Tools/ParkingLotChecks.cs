@@ -16,18 +16,36 @@ namespace SpacePark.Tools
 
         public static bool CheckForFreeParkingSpaces(List<StarshipData> starshipDataFromSWAPI, string starShipInput)
         {
-            string starShipLength = null;
+            string starShipLength;
 
             foreach (StarshipData starshipDataFromSWAPIList in starshipDataFromSWAPI)
             {
                 if (starshipDataFromSWAPIList.Name.ToLower() == starShipInput.ToLower())
                 {
-                    starShipLength = starshipDataFromSWAPIList.Length;
+                    if (Convert.ToDouble(starshipDataFromSWAPIList.Length) <= 20)
+                    {
+                        starShipLength = "SMALL";
+                    }
+                    else if (Convert.ToDouble(starshipDataFromSWAPIList.Length) <= 120)
+                    {
+                        starShipLength = "MEDIUM";
+                    }
+                    else if (Convert.ToDouble(starshipDataFromSWAPIList.Length) <= 500)
+                    {
+                        starShipLength = "LARGE";
+                    }
+                    else
+                    {
+                        starShipLength = "CAPITAL";
+                    }
+                    return LoopThroughParkingSpaces(starShipLength);
                 }
             }
+            return false;
+        }
 
-            //if (starShipLength != null && starShipLength != "")
-            //{
+        private static bool LoopThroughParkingSpaces(string starShipLength)
+        {
             foreach (ParkingSpace item in ParkingLot.ParkingSpaces)
             {
                 if (item.Occupied == false && (item.Size > 0 && item.Size <= 20 && starShipLength.ToUpper() == "SMALL"
@@ -38,7 +56,6 @@ namespace SpacePark.Tools
                     return true;
                 }
             }
-            // }
             return false;
         }
     }
