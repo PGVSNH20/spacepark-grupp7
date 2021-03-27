@@ -25,11 +25,6 @@ namespace SpacePark
        */
         static void Main(string[] args)
         {
-            /*
-             * Om steg 3-6-koden
-             * 1. Om man skriver in en felaktig användare så går den vidare till "skriv in skepp"
-             * 2. Kommer behöva flytta ut metoder och sånt i andra klasser efter att vi gjort så de fungerar korrekt.
-             */
             static void UserVerification()
             {
                 Console.WriteLine("Enter your username:");
@@ -47,25 +42,25 @@ namespace SpacePark
                 }
             }
 
-            static bool ShipVerification(string shipName)
+            static void ShipVerification()
             {
-                bool flag;
-                flag = ShipChecker.TestIfShipIsInStarWars(StarshipFetcher.GetListOfStarships(), shipName);
+                Console.WriteLine("Enter the name of the ship:");
 
-                if (flag == true)
+                if (ShipChecker.TestIfShipIsInStarWars(StarshipFetcher.GetListOfStarships(), Console.ReadLine()
+                    ))
                 {
                     Console.WriteLine("This ship is approved");
-                    return true;
                 }
                 else
                 {
-                    Console.WriteLine("Wrong ship.");
-                    return false;
+                    Console.WriteLine("Wrong ship. Try again");
+                    ShipVerification();
                 }
 
             }
 
             UserVerification();
+            ShipVerification();
 
             /*string userName;
             string shipName;
@@ -74,11 +69,11 @@ namespace SpacePark
             int flag1 = 0;
             do
             {
-                Console.WriteLine("Enter your username:");
+              
                 userName = Console.ReadLine();
                 flag++;
             } while (UserVerification(userName) == false && flag != 2);
-            */
+            
             if (flag != 2)
             {
                 do {
@@ -87,6 +82,7 @@ namespace SpacePark
                     flag1++;
                 } while (ShipVerification(shipName) == false && flag1 != 2);    
             }
+            
 
             static void ParkingVerification(string isParkShip)
             {
@@ -111,7 +107,9 @@ namespace SpacePark
             {
                 ParkingVerification(isParkShip);
             }
+            */
 
         }
+
     }
-}
+    }
