@@ -11,7 +11,7 @@ namespace SpacePark
         /*
        * Program flow:
      ✔️* 1. User starts the program
-       * 2. Program checks to see if there are any free parking spaces. If true continue.
+     ✔️* 2. Program checks to see if there are any free parking spaces. If true continue.
      ✔️* 3. Program asks user to input their name.
      ✔️* 4. Program fetches list of allowed users, and compares the name given to the list. If true, continue.
           Additionally: Create a simple table in [the database] using Entity Framework and register that the user has registered
@@ -27,9 +27,12 @@ namespace SpacePark
         static void Main(string[] args)
         {
             ParkingLot.GenerateParkingSpaces();
-            UserVerification();
-            ShipVerification();
-            ParkingVerification();
+            if (ParkingLotChecks.AreThereAnyFreeParkingSpaces())
+            {
+                UserVerification();
+                ShipVerification();
+                ParkingVerification();
+            }
 
         }
 
@@ -81,4 +84,4 @@ namespace SpacePark
         }
 
     }
-    }
+}

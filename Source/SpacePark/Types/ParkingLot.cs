@@ -28,7 +28,7 @@ namespace SpacePark.Types
             }
             for (; index < 120; index++)             // Adds 2 unoccupied parking spaces for medium ships
             {
-                ParkingSpaces.Add(new ParkingSpace(index, 120, true));
+                ParkingSpaces.Add(new ParkingSpace(index, 120, false));
             }
             for (; index < 124; index++)             // Adds 4 occupied parking spaces for large ships
             {
@@ -36,11 +36,11 @@ namespace SpacePark.Types
             }
             for (; index < 125; index++)             // Adds 1 unoccupied parking spaces for large ships
             {
-                ParkingSpaces.Add(new ParkingSpace(index, 500, true));
+                ParkingSpaces.Add(new ParkingSpace(index, 500, false));
             }
             for (; index < 126; index++)             // Adds 1 unoccupied parking space for capital ships
             {
-                ParkingSpaces.Add(new ParkingSpace(index, 5000, true));
+                ParkingSpaces.Add(new ParkingSpace(index, 5000, false));
             }
         }
 
