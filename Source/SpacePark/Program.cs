@@ -30,20 +30,20 @@ namespace SpacePark
              * 1. Om man skriver in en felaktig användare så går den vidare till "skriv in skepp"
              * 2. Kommer behöva flytta ut metoder och sånt i andra klasser efter att vi gjort så de fungerar korrekt.
              */
-            static bool UserVerification(string userName)
+            static void UserVerification()
             {
-                bool flag;
-                flag = IdentityChecker.TestIfStarWarsActor(PeopleFetcher.GetListOfPeople(), userName);
+                Console.WriteLine("Enter your username:");
 
-                if (flag == true)
+                if (IdentityChecker.TestIfStarWarsActor(
+                    PeopleFetcher.GetListOfPeople(), Console.ReadLine()
+                    ))
                 {
                     Console.WriteLine("This user is approved");
-                    return true;
                 }
                 else
                 {
                     Console.WriteLine("Wrong user. Try again!");
-                    return false;
+                    UserVerification();
                 }
             }
 
@@ -65,7 +65,9 @@ namespace SpacePark
 
             }
 
-            string userName;
+            UserVerification();
+
+            /*string userName;
             string shipName;
 
             int flag = 0;
@@ -75,22 +77,17 @@ namespace SpacePark
                 Console.WriteLine("Enter your username:");
                 userName = Console.ReadLine();
                 flag++;
-            }
-
-            while (UserVerification(userName) == false && flag != 2);
-
+            } while (UserVerification(userName) == false && flag != 2);
+            */
             if (flag != 2)
             {
                 do {
                     Console.WriteLine("Enter your ship:");
                     shipName = Console.ReadLine();
                     flag1++;
-                }
-                while (ShipVerification(shipName) == false && flag1 != 2);    
+                } while (ShipVerification(shipName) == false && flag1 != 2);    
             }
 
-            /* Här kommenterat pga koden funkar ej för mig.
-              
             static void ParkingVerification(string isParkShip)
             {
                 bool flag;
@@ -107,14 +104,13 @@ namespace SpacePark
             }
 
             string isParkShip;
-            Console.WriteLine("Do you want to park your ship?");
+            Console.WriteLine("Do you want to park your ship? (yes/no)");
             isParkShip = Console.ReadLine();
 
             if (string.Equals("YES", isParkShip.ToUpper()))
             {
                 ParkingVerification(isParkShip);
             }
-            */
 
         }
     }
