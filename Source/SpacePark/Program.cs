@@ -43,6 +43,13 @@ namespace SpacePark
                 context.Entries.Add(registration);          // Lägg till registreringen till databasen
                 context.SaveChanges();                      // Spara inlägget
 
+                Console.WriteLine(  $"\nInvoice\n" +
+                                    $"Name:          {registration.Name}\n" +
+                                    $"Ship:          {registration.ShipName}\n" +
+                                    $"Parking Space: {registration.ParkingSpace}\n" +
+                                    $"Fee:           {registration.ParkingFee}\n"
+                                 );
+
             }
 
         }
