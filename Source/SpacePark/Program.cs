@@ -21,6 +21,12 @@ namespace SpacePark
             }
 
 
+            List<VehicleData> vehicles = VehicleFetcher.GetListOfVehicles();
+            foreach (VehicleData v in vehicles)
+            {
+                Console.WriteLine($"{v.Name} is of class {v.Vehicle_Class}");
+            }
+
         }
         private static void GenerateParkingSpaces(List<ParkingSpace> ParkingSpaces)
         {
