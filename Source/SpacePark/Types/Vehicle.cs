@@ -6,25 +6,23 @@ using System.Threading.Tasks;
 
 namespace SpacePark.Types
 {
-    class Vehicle
-    {
-
-        public class Result
+    
+        public class VehicleData
         {
-            public string vehicle_class { get; set; }
+            public string Vehicle_Class { get; set; }
             
         }
 
-        public class Root
+        public class Vehicle
         {
-            public int count { get; set; }
-            public string next { get; set; }
-            public object previous { get; set; }
-            public List<Result> results { get; set; }
+            public int Count { get; set; }
+            public string Next { get; set; }
+            public object Previous { get; set; }
+            public IList<VehicleData> Results { get; set; }
         }
 
 
 
 
-    }
+    
 }
