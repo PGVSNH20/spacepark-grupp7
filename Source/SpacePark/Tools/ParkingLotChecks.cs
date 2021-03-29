@@ -7,11 +7,7 @@ namespace SpacePark.Tools
 {
     class ParkingLotChecks
     {
-
        // ParkingLot pl = new ParkingLot();
-
-
-
         /* 2. Program checks to see if there are any free parking spaces. If true continue.*/
         /* 7. Program checks if there is a parking space of the appropriate size available in the parking lot.If true, continue.*/
         public static bool AreThereAnyFreeParkingSpaces()
