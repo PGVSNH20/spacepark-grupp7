@@ -28,7 +28,7 @@ namespace SpacePark
         public static UserRegistrationEntry registration;
         static void Main(string[] args)
         {
-            
+
             ParkingLot.GenerateParkingSpaces();
             if (ParkingLotChecks.AreThereAnyFreeParkingSpaces())
             {
@@ -51,7 +51,8 @@ namespace SpacePark
                                  );
 
             }
-
+            PrintAllRegistrations();
+            
         }
 
         private static void ShipVerification()
@@ -103,5 +104,18 @@ namespace SpacePark
             }
         }
 
+        private static void PrintAllRegistrations()
+        {
+            using EFContext context = new EFContext();
+            Console.WriteLine("\nListing all previously logged entries:");
+            Console.WriteLine(new string('-', 20));
+            foreach (UserRegistrationEntry entry in context.Entries)
+            {
+                Console.WriteLine($"Name:  {entry.Name}\n" +
+                                  $"Id:    {entry.Id}\n" +
+                                  $"Space: {entry.ParkingSpace}\n" +
+                                    new string('-', 20));
+            }
+        }
     }
 }
