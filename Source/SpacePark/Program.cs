@@ -1,4 +1,6 @@
-﻿using SpacePark.SWAPI;
+﻿using SpacePark.Data;
+using SpacePark.Models;
+using SpacePark.SWAPI;
 using SpacePark.Tools;
 using SpacePark.Types;
 using System;
@@ -23,14 +25,24 @@ namespace SpacePark
        * And done.
        */
         private static string shipName;
+        public static UserRegistrationEntry registration;
         static void Main(string[] args)
         {
+            
             ParkingLot.GenerateParkingSpaces();
             if (ParkingLotChecks.AreThereAnyFreeParkingSpaces())
             {
+                registration = new UserRegistrationEntry();
                 UserVerification();
                 ShipVerification();
                 ParkingVerification();
+                registration.ParkingFee = 100; // placeholder istället för att faktiskt generera ett pris
+
+
+                using EFContext context = new EFContext();  // Koppling till databasen
+                context.Entries.Add(registration);          // Lägg till registreringen till databasen
+                context.SaveChanges();                      // Spara inlägget
+
             }
 
         }
@@ -38,9 +50,9 @@ namespace SpacePark
         private static void ShipVerification()
         {
             Console.WriteLine("Enter the name of the ship:");
-            shipName = Console.ReadLine();
+            registration.ShipName = Console.ReadLine();
 
-            if (ShipChecker.TestIfShipIsInStarWars(StarshipFetcher.GetListOfStarships(), shipName
+            if (ShipChecker.TestIfShipIsInStarWars(StarshipFetcher.GetListOfStarships(), registration.ShipName
                 ))
             {
                 Console.WriteLine("This ship is approved");
@@ -56,9 +68,10 @@ namespace SpacePark
         private static void UserVerification()
         {
             Console.WriteLine("Enter your username:");
+            registration.Name = Console.ReadLine();
 
             if (IdentityChecker.TestIfStarWarsActor(
-                PeopleFetcher.GetListOfPeople(), Console.ReadLine()
+                PeopleFetcher.GetListOfPeople(), registration.Name
                 ))
             {
                 Console.WriteLine("This user is approved");
@@ -72,9 +85,10 @@ namespace SpacePark
         private static void ParkingVerification()
         {
 
-            if (ParkingLotChecks.CheckForFreeParkingSpaces(StarshipFetcher.GetListOfStarships(), shipName))
+            if (ParkingLotChecks.CheckForFreeParkingSpaces(StarshipFetcher.GetListOfStarships(), registration.ShipName))
             {
                 Console.WriteLine("There is a parking space available for your ship.");
+                registration.ParkingSpace = new Random().Next(0, 126);  // Placeholder istället för att faktiskt välja en korrekt parkeringsplats
             }
             else
             {
